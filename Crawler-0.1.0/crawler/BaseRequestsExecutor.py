@@ -1,6 +1,5 @@
 """
-RequestsOrchestrator manages the way we do send
-requests
+RequestsOrchestrator manages the way we send requests
 """
 
 from abc import ABCMeta, abstractmethod

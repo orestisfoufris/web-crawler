@@ -19,7 +19,7 @@ class RequestsExecutorAsync(BaseRequestsExecutor):
         threads_count = multiprocessing.cpu_count()
 
         # 408 Request Timeout
-        retry = Retry(total=2, backoff_factor=0.2, status_forcelist=[408], raise_on_redirect=True)
+        retry = Retry(total=2, backoff_factor=0.2, status_forcelist=[408])
 
         session = grequests.Session()
         session.mount('http://', HTTPAdapter(max_retries=retry))
@@ -27,4 +27,3 @@ class RequestsExecutorAsync(BaseRequestsExecutor):
 
         responses = [grequests.get(link, timeout=self.timeout, session=session) for link in list_requests]
         return grequests.imap(responses, size=threads_count * 4, exception_handler=self.handle_exceptions)
-
