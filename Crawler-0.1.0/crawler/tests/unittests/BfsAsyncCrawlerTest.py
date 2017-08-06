@@ -72,10 +72,7 @@ class BfsAsyncCrawlerTest(unittest.TestCase):
         self.assertEqual(len(mock_req_executor_calls), 2)
 
     def test_perform_crawling_with_limit(self):
-        """
-        We have created a circle here where /buy returns links
-        to /shopping and /shopping link to buy
-        """
+        
         headers = {'content-type' : 'text/html'}
 
         first_mock_response = MagicMock(requests.Response())
