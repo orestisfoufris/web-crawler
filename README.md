@@ -12,7 +12,7 @@ Additionally to the sitemap it will output a list of links and assets for each v
 II. Design
 ----------
 
-Internally the crawler will do a Breath-First-Search traversal with the starting url as the root of the tree.
+Internally the crawler will do a Breadth-First-Search traversal with the starting url as the root of the tree.
 To achieve better performance we have parallelized the IO work we need to do for every level of the tree. He have achieved
 that by using a sentinel to mark each level.
 
